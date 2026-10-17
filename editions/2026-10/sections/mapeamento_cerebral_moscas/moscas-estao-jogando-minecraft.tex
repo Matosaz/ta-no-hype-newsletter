@@ -1,0 +1,36 @@
+% !TEX root = ../../main/main.tex
+% Requer \usepackage{wrapfig} no preâmbulo (para a imagem do conectoma ao lado do texto)
+
+\hypearticle
+{Moscas estão jogando Minecraft e Xadrez?}
+{Matheus Pires}
+{
+
+Diversos conteúdos repercutiram ultimamente na internet retratando simulações de moscas realizando múltiplas atividades, desde buscar uma fonte de água para hidratação, até zerar DOOM e jogar poker. Essas simulações baseiam-se em um estudo científico realizado pelo centro de pesquisa \textit{HHMI Janelia Research Campus}, em parceria com o Google Research, com o objetivo de mapear as conexões neurais e funcionais do cérebro de uma mosca-da-fruta (\textit{Drosophila melanogaster}).
+
+Esse mapeamento cerebral pode ser representado por um \textbf{\textit{conectoma}}, que consiste em grafos direcionados que representam as conexões entre cada neurônio. Para desenvolver esse conectoma, os cientistas tingiram as células do sistema nervoso de uma mosca com metais pesados, extraíram fatias finas e analisaram-nas utilizando um microscópio de alta resolução. As projeções dos neurônios, a partir das imagens capturadas, foram segmentadas e conectadas utilizando visão computacional, cujos resultados foram analisados manualmente ao decorrer de 33 anos, até produzirem a primeira versão oficial do conectoma.
+
+Os estudos englobando os mapeamentos neurais demonstram resultados promissores na interpretação e reação a estímulos em escala praticamente idêntica à de um cérebro real. Exemplificadamente, quando uma mosca está voando, há uma série de neurônios que são ativados e mantêm suas percepções axial e de rotação, e o mesmo padrão de ativação neural é visualizado nos conectomas quando submetidos aos mesmos estímulos.
+
+As sinapses --- relações de conexão entre os neurônios e outras células --- podem ser representadas como uma matriz esparsa, isto é, uma matriz majoritariamente constituída por elementos nulos, ou zeros. Essa relação binária, ativa (1) e inativa (0), dos valores da matriz é o que possibilita representar os estímulos desses neurônios entre excitatórios, regiões sendo ativadas, e inibitórios, regiões sendo inibidas ou desativadas.
+
+\articleimage{0.8}{../sections//mapeamento_cerebral_moscas/assets/conectoma_mosca.png}{Representação virtual do conectoma de uma mosca}
+
+
+Entretanto, o ponto-chave que permite que as moscas possam jogar xadrez, tocar piano e até mesmo rolar continuamente o feed do Instagram para obter dopamina é a implementação do cordão nervoso central na arquitetura do conectoma. Essa estrutura do organismo é responsável por assegurar as capacidades motoras e sensoriais, assim como a percepção de informações do ambiente externo. O cordão nervoso central é o responsável por permitir as simulações, pois a partir dele é possível estabelecer uma conexão entre um ``cérebro virtual'' e um ``corpo'' para ser controlado.
+
+
+A matriz que comentamos representa adequadamente as conexões entre os neurônios, no entanto, ela está ausente e carece de algumas informações cruciais que determinam funções e, consequentemente, ações. Essas informações necessárias são, principalmente: a corrente entre as sinapses (tendo em vista que informações nos neurônios são transmitidas através de estímulos elétricos), a intensidade da sinapse e seu tempo de duração, além de outras informações auxiliares.
+
+Com esses dados, se cada neurônio do mapeamento projetado receber em seus parâmetros exatamente os mesmos valores que uma mosca real receberia, então a simulação será capaz de emular os mesmos resultados. Na representação visual exemplificada abaixo, os neurônios sensíveis a açúcar da simulação foram ativados, desencadeando uma cadeia de ativações sinápticas até, em última instância, o ``neurônio motor 9'', responsável pela movimentação da probóscide da mosca, ser ativado. Assim, a mosca da simulação foi capaz de beber uma deliciosa água açucarada (\textit{Yummy}).
+
+\articleimage{1.0}{../sections/mapeamento_cerebral_moscas/assets/neuron_activation_schema.png}{Circuito de iniciação da alimentação: do estímulo de açúcar unilateral ao neurônio motor 9}
+
+Além do âmbito científico, inúmeras discussões acerca dos princípios éticos dessas simulações emergiram conforme novas vertentes foram produzidas: as moscas dessas simulações possuem consciência de algum modo? Elas estão experienciando sofrimento ou dor?
+
+A resposta para tais indagações varia de acordo com a óptica utilizada, entretanto, na definição humana de consciência, as moscas não possuem nenhum nível de senciência e não são capazes de ``sofrer'' ou interpretar uma determinada ação como danosa, ou benéfica, para si própria. Logo, podem permanecer tranquilos, as moscas não irão se revoltar contra a humanidade em um futuro distópico similar ao de ``\textit{I Have No Mouth, and I Must Scream}'' devido às simulações e estudos realizados com a virtualização do cérebro de uma delas.
+
+Pelo contrário, as pesquisas em desenvolvimento contribuirão amplamente para a compreensão de aspectos que desconhecemos acerca de percepção sensorial, aprendizado, memória, síndromes e distúrbios neurológicos que afetam diretamente o sistema nervoso e, consequentemente, a estrutura corporal -como a Síndrome de Parkinson e Alzheimer- e como medidas de cura e tratamento podem ser implementadas. Com a progressão desses estudos, a humanidade poderá evoluir significativamente nas áreas de saúde, comportamento social, robótica e aprendizado de máquina.
+\originalsource{https://www.neuroai.science/p/are-flies-playing-beat-saber}
+
+}
