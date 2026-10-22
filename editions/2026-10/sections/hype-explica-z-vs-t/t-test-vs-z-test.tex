@@ -35,7 +35,7 @@ O valor crítico, por sua vez, depende da distribuição que a estatística segu
 
 \hspace*{1.5em}
 O erro padrão da média depende do desvio padrão populacional $\sigma$.
-No teste z, esse parâmetro é considerado conhecido,
+No \textit{z-test}, esse parâmetro é considerado conhecido,
 e a estatística de teste segue a distribuição normal padrão:
 
 \[
@@ -43,7 +43,7 @@ z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
 \]
 
 \hspace*{1.5em}
-No teste t, $\sigma$ é desconhecido e substituído pelo desvio padrão amostral $s$.
+No \textit{t-test}, $\sigma$ é desconhecido e substituído pelo desvio padrão amostral $s$.
 A fórmula tem a mesma aparência, mas a estatística passa a seguir a distribuição t de Student,
 com $n - 1$ graus de liberdade:
 
@@ -52,16 +52,16 @@ t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
 \]
 
 \begin{hypeitemize}
-    \item \textbf{Teste z:} $\sigma$ conhecido, distribuição normal padrão.
-    \item \textbf{Teste t:} $\sigma$ estimado por $s$, distribuição t de Student.
+    \item \textbf{\textit{z-test}:} $\sigma$ conhecido, distribuição normal padrão.
+    \item \textbf{\textit{t-test}:} $\sigma$ estimado por $s$, distribuição t de Student.
 \end{hypeitemize}
 
 \subtitle{Por que as caudas são mais pesadas?}
 
 \hspace*{1.5em}
-No teste z, o único elemento que varia de uma amostra para outra é a média $\bar{x}$,
+No \textit{z-test}, o único elemento que varia de uma amostra para outra é a média $\bar{x}$,
 pois o desvio padrão $\sigma$ é um valor fixo e conhecido.
-No teste t, o desvio padrão amostral $s$ também é calculado a partir dos dados
+No \textit{t-test}, o desvio padrão amostral $s$ também é calculado a partir dos dados
 e, portanto, muda a cada amostra.
 Isso significa que o denominador da estatística passa a ser uma fonte extra de variação.
 
@@ -94,24 +94,21 @@ A figura e a tabela a seguir ilustram esse comportamento.
 
 \articleimage{1.0}{../sections/hype-explica-z-vs-t/curvas-z-t.png}{Distribuição normal padrão comparada a distribuições t com 2, 5 e 30 graus de liberdade.}
 
-\highlight{
-\centering
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{cccc}
-\toprule
-\textbf{Amostra ($n$)} & \textbf{Graus de liberdade} & \textbf{Valor crítico t} & \textbf{Valor crítico z} \\
-\midrule
+\begin{tabular}{|cccc|}
+\hline
+\textbf{\small Amostra ($n$)} & \textbf{Graus de liberdade} & \textbf{Valor crítico t} & \textbf{Valor crítico z} \\
+\hline
 5   & 4   & 2,776 & 1,960 \\
 10  & 9   & 2,262 & 1,960 \\
 30  & 29  & 2,045 & 1,960 \\
 100 & 99  & 1,984 & 1,960 \\
-\bottomrule
+\hline
 \end{tabular}%
 }
 
 \vspace{0.4em}
 {\small Valores críticos bilaterais para $\alpha = 0{,}05$.}
-}
 
 \hspace*{1.5em}
 Para $n = 5$, o valor crítico t é cerca de 40\% maior que o z,
@@ -137,23 +134,23 @@ e apenas a segunda leva em conta que o desvio padrão foi estimado a partir de c
 \subtitle{Quando cada teste se aplica}
 
 \hspace*{1.5em}
-O teste z é adequado quando $\sigma$ é de fato conhecido,
+O \textit{z-test} é adequado quando $\sigma$ é de fato conhecido,
 situação rara, que costuma ocorrer em processos industriais com longo histórico de calibração.
 Ele também é o procedimento padrão para proporções,
 caso em que a variância é determinada pela própria proporção testada
 e não precisa ser estimada separadamente.
 Para médias com $\sigma$ desconhecido, que é o cenário usual em ciência de dados,
-o teste t é o procedimento apropriado.
+o \textit{t-test} é o procedimento apropriado.
 
 \subtitle{Uma ressalva importante}
 
 \hspace*{1.5em}
-A regra segundo a qual $n \geq 30$ autoriza o uso do teste z é uma convenção histórica,
+A regra segundo a qual $n \geq 30$ autoriza o uso do \textit{z-test} é uma convenção histórica,
 associada à época em que as tabelas eram impressas e consultadas manualmente.
 Com $n$ grande, a diferença entre os dois testes se torna desprezível,
-e, como os softwares estatísticos calculam o teste t sem custo adicional,
+e, como os softwares estatísticos calculam o \textit{t-test} sem custo adicional,
 a prática atual é utilizá-lo sempre que $\sigma$ for desconhecido.
-Vale lembrar ainda que, em amostras pequenas, o teste t pressupõe uma população aproximadamente normal,
+Vale lembrar ainda que, em amostras pequenas, o \textit{t-test} pressupõe uma população aproximadamente normal,
 condição que deve ser verificada antes de se confiar no resultado.
 
 \begin{infobox}
