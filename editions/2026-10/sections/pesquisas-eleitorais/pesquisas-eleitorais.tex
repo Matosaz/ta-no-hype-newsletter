@@ -1,0 +1,89 @@
+\hypearticle{Como as pesquisas eleitorais podem acertar ouvindo tão pouca gente?}
+{Gustavo Neves Moraes}
+{
+
+\hspace*{1.5em}
+Em períodos eleitorais, é comum ver pesquisas que entrevistam cerca de 2 mil pessoas
+para descrever a intenção de voto de mais de 150 milhões de eleitores.
+A desconfiança acerca dessa desproporção é natural,
+mas ela se apoia em uma intuição equivocada de como é feita a seleção.
+A precisão de uma pesquisa depende muito mais de como a amostra é escolhida
+do que da fração do eleitorado que foi ouvida.
+
+\subtitle{Por que uma amostra pequena pode bastar}
+
+\hspace*{1.5em}
+Para entender de forma simplificada, vamos usar um exemplo bastante famoso,
+para saber se uma sopa está no ponto, basta provar uma colherada, desde que a panela esteja bem misturada.
+O tamanho da panela não muda isso,
+pois o que importa é que a colherada represente o conjunto.
+
+\hspace*{1.5em}
+Em uma pesquisa eleitoral, a mistura da sopa corresponde à seleção aleatória, isto é,
+quando todo eleitor tem uma chance conhecida de ser escolhido,
+a amostra tende a reproduzir as proporções do eleitorado.
+Ainda assim, ela não será idêntica à população,
+já que cada sorteio produz um grupo ligeiramente diferente do outro.
+Essa diferença é meramente fruto do acaso e, por seguir regras matemáticas conhecidas,
+pode ser medida e informada junto com o resultado, na forma da margem de erro.
+
+\subtitle{Quanto a amostra pode errar}
+
+\hspace*{1.5em}
+Seja $p$ a proporção de eleitores que apoiam determinado candidato.
+A proporção observada na amostra, $\hat{p}$, varia de uma amostra para outra,
+e essa variação é medida pelo erro padrão.
+Para um nível de confiança de 95\%, a margem de erro é aproximadamente:
+
+\[
+\text{margem} \approx 1{,}96 \sqrt{\frac{p(1-p)}{n}}
+\]
+
+\hspace*{1.5em}
+O valor 1,96 vem da distribuição normal padrão.
+Para amostras grandes, $\hat{p}$ se distribui aproximadamente como uma normal em torno de $p$,
+e, nessa distribuição, cerca de 95\% da probabilidade fica a até 1,96 erros padrão da média.
+A margem de erro, portanto, é esse número de erros padrão
+multiplicado pelo erro padrão de $\hat{p}$, que é a raiz da fórmula.
+Para outros níveis de confiança, o valor muda de acordo com a Tabela da Distribuição Normal (por
+exemplo, valores famosos são 1,645 para 90\% e 2,576 para 99\%).
+
+\hspace*{1.5em}
+O tamanho da população não aparece na fórmula,
+pois, para populações grandes, a precisão é determinada por $n$.
+O produto $p(1-p)$ é máximo quando $p = 0{,}5$, e é esse caso que costuma servir de referência.
+Como $n$ está dentro da raiz, reduzir a margem pela metade exige quadruplicar a amostra,
+o que explica por que a maioria das pesquisas se limita a alguns milhares de entrevistados.
+
+\subtitle{Um exemplo numérico}
+
+\hspace*{1.5em}
+Considere uma pesquisa com $n = 2000$ entrevistados em que um candidato aparece com 48\%.
+A margem de erro é $1{,}96\sqrt{0{,}48 \cdot 0{,}52 / 2000} \approx 2{,}2$ pontos percentuais,
+o que leva ao intervalo de 45,8\% a 50,2\%.
+Isso não quer dizer que o valor verdadeiro esteja nesse intervalo com 95\% de probabilidade.
+O que se afirma é que, se a pesquisa fosse repetida muitas vezes com amostras distintas,
+cerca de 95\% dos intervalos construídos dessa forma conteriam o valor verdadeiro.
+
+\subtitle{O que a margem de erro não cobre}
+
+\hspace*{1.5em}
+Vale ressaltar que a margem de erro mede apenas a variação causada pelo sorteio da amostra.
+Ou seja, ela não captura problemas de outra natureza,
+como a recusa de parte dos sorteados em responder, quando os que aceitam diferem dos que recusam,
+ou o uso de amostragem por cotas, adotada por muitos institutos,
+em que os entrevistados são escolhidos para reproduzir perfis de sexo, idade, escolaridade e renda,
+e não sorteados individualmente.
+Nesses casos, a margem divulgada é uma aproximação, e o erro real pode ser maior.
+Além disso, a pesquisa descreve a intenção de voto no momento da coleta e não prevê o resultado,
+pois eleitores indecisos podem mudar de opinião até a votação.
+
+\originalsource{https://www.pewresearch.org/short-reads/2016/09/08/understanding-the-margin-of-error-in-election-polls/}
+
+\vspace{0.1em}
+{\color{HypePurple2} Quer se aprofundar mais?}
+
+\href{https://www.youtube.com/shorts/cEq4mvdK10o}{{\color{HypeOrange}Confira este vídeo curto}} que instigou a escrita do tema. \\
+\href{https://www.youtube.com/watch?v=85NM1-FQrn0}{{\color{HypeOrange}Confira este vídeo do Khan Academy}} sobre como pequenas amostras podem representar a opinião de milhões de eleitores.
+
+}

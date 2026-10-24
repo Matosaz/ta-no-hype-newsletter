@@ -43,6 +43,24 @@ halign=left,
 
 }
 
+% MACRO: HYPE EXPLICA (banner manual + corpo de artigo)
+
+\newcommand{\hypeexplica}[3]{
+
+\vspace{0.1cm}
+
+\begin{center}
+\includegraphics[width=\columnwidth]{#1}
+\end{center}
+{\small\color{HypePurple} Texto por #2}
+\vspace{0.2cm}
+
+#3
+
+\vspace{0.5cm}
+
+}
+
 % MACRO: SUBTÍTULO -------------------------------------
 
 \newcommand{\subtitle}[1]{
@@ -80,8 +98,8 @@ halign=left,
 
 
 {\color{HypePurple2}Gostou do texto?}\\
-Leia também a fonte original
-\href{#1}{aqui}.
+Confira também a fonte original principal
+\href{#1}{{\color{HypeOrange}aqui}}.
 
 }
 
@@ -166,4 +184,12 @@ bottom=1mm
 \end{tcolorbox}
 
 \vspace{0.3cm}
+}
+
+% MACRO: FEEDBACK DA EDIÇÃO ------------------------------
+
+\newcommand{\hypefeedback}[1]{
+\begin{center}
+\href{#1}{\includegraphics[width=1.0\columnwidth]{../../../shared/assets/final.png}}
+\end{center}
 }

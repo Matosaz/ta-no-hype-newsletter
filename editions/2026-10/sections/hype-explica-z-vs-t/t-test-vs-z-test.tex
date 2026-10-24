@@ -1,0 +1,172 @@
+\hypeexplica{../sections/hype-explica-z-vs-t/banner-hype-explica.png}
+{Gustavo Neves Moraes}
+{
+
+\hspace*{1.5em}
+Nos cursos introdutórios de estatística, o chamado \textit{z-test} e o \textit{t-test}, que costumam aparecer lado a lado,
+com fórmulas praticamente idênticas e valores críticos distintos.
+No entanto, a diferença entre eles não é apenas operacional,
+pois está relacionada ao que se conhece sobre a população antes de a análise começar
+e à incerteza que acompanha essa informação.
+
+\subtitle{O teste de hipótese para a média}
+
+\hspace*{1.5em}
+Um teste de hipótese para a média responde a uma simples pergunta:
+\highlight{A média observada na amostra, $\bar{x}$, é compatível com o valor de referência $\mu_0$, afirmado pela hipótese nula?}
+Como duas amostras da mesma população raramente têm a mesma média,
+alguma diferença entre $\bar{x}$ e $\mu_0$ é esperada mesmo quando $H_0$ é verdadeira.
+O que o teste avalia é se essa diferença é pequena o bastante para ser atribuída ao acaso
+ou grande demais para isso.
+
+\hspace*{1.5em}
+Para medir o tamanho da diferença, ela é expressa em unidades de erro padrão,
+que indicam o quanto uma média amostral costuma variar de uma amostra para outra.
+O resultado é a estatística de teste,
+um número que informa a quantos erros padrão a média observada está de $\mu_0$.
+Essa estatística é então comparada com um valor crítico, definido pelo nível de significância $\alpha$,
+e, se ela o ultrapassa, rejeita-se $H_0$.
+
+\hspace*{1.5em}
+O valor crítico, por sua vez, depende da distribuição que a estatística segue quando $H_0$ é verdadeira.
+É exatamente nesse ponto que o \textit{z-test} e o \textit{t-test} se separam.
+
+\subtitle{Dois testes, uma diferença}
+
+\hspace*{1.5em}
+O erro padrão da média depende do desvio padrão populacional $\sigma$.
+No \textit{z-test}, esse parâmetro é considerado conhecido,
+e a estatística de teste segue a distribuição normal padrão:
+
+\[
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
+\]
+
+\hspace*{1.5em}
+No \textit{t-test}, $\sigma$ é desconhecido e substituído pelo desvio padrão amostral $s$.
+A fórmula tem a mesma aparência, mas a estatística passa a seguir a distribuição t de Student,
+com $n - 1$ graus de liberdade:
+
+\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}
+\]
+
+\begin{hypeitemize}
+    \item \textbf{\textit{z-test}:} $\sigma$ conhecido, distribuição normal padrão.
+    \item \textbf{\textit{t-test}:} $\sigma$ estimado por $s$, distribuição t de Student.
+\end{hypeitemize}
+
+\subtitle{Por que as caudas são mais pesadas?}
+
+\hspace*{1.5em}
+No \textit{z-test}, o único elemento que varia de uma amostra para outra é a média $\bar{x}$,
+pois o desvio padrão $\sigma$ é um valor fixo e conhecido.
+No \textit{t-test}, o desvio padrão amostral $s$ também é calculado a partir dos dados
+e, portanto, muda a cada amostra.
+Isso significa que o denominador da estatística passa a ser uma fonte extra de variação.
+
+\hspace*{1.5em}
+Essa variação adicional importa porque $s$ às vezes subestima $\sigma$ por puro acaso.
+Quando isso acontece, o erro padrão calculado fica menor do que deveria,
+e a estatística resultante se afasta de zero mais do que o esperado,
+mesmo com $H_0$ verdadeira.
+Em amostras pequenas, $s$ oscila bastante,
+então esses valores extremos aparecem com mais frequência do que a distribuição normal prevê.
+
+\hspace*{1.5em}
+A distribuição t de Student incorpora esse efeito por meio de caudas mais pesadas,
+ou seja, atribui mais probabilidade aos valores extremos.
+Como consequência, os valores críticos são maiores,
+e o critério para rejeitar $H_0$ se torna mais exigente,
+o que compensa a incerteza de ter estimado $\sigma$ a partir de poucos dados.
+
+% \articleimage{1.0}{../sections/hype-explica-z-vs-t/distribution.png}{AA}
+
+\subtitle{Graus de liberdade e convergência}
+
+\hspace*{1.5em}
+O formato da distribuição t é determinado pelos graus de liberdade,
+que no teste para uma única média valem $n - 1$.
+Com poucos graus de liberdade, as caudas se afastam bastante das da normal,
+e, à medida que $n$ aumenta, $s$ passa a estimar $\sigma$ com mais precisão,
+de modo que a distribuição t converge para a normal padrão.
+A figura e a tabela a seguir ilustram esse comportamento.
+
+\articleimage{1.0}{../sections/hype-explica-z-vs-t/curvas-z-t.png}{Distribuição normal padrão comparada a distribuições t com 2, 5 e 30 graus de liberdade.}
+
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|cccc|}
+\hline
+\textbf{\small Amostra ($n$)} & \textbf{Graus de liberdade} & \textbf{Valor crítico t} & \textbf{Valor crítico z} \\
+\hline
+5   & 4   & 2,776 & 1,960 \\
+10  & 9   & 2,262 & 1,960 \\
+30  & 29  & 2,045 & 1,960 \\
+100 & 99  & 1,984 & 1,960 \\
+\hline
+\end{tabular}%
+}
+
+\vspace{0.4em}
+{\small Valores críticos bilaterais para $\alpha = 0{,}05$.}
+
+\hspace*{1.5em}
+Para $n = 5$, o valor crítico t é cerca de 40\% maior que o z,
+enquanto para $n = 100$ a diferença é inferior a 2\%.
+A distância entre os dois testes, portanto, é relevante principalmente em amostras pequenas.
+
+\subtitle{Um exemplo numérico}
+
+\hspace*{1.5em}
+Considere uma amostra de $n = 5$ observações, com média $\bar{x} = 108$ e desvio padrão $s = 8$,
+usada para testar $H_0: \mu = 100$ com $\alpha = 0{,}05$.
+O erro padrão é $8/\sqrt{5} \approx 3{,}58$,
+e a estatística de teste vale $(108 - 100)/3{,}58 \approx 2{,}24$.
+
+\hspace*{1.5em}
+Se $s$ for tratado como se fosse $\sigma$ e comparado ao valor crítico z de 1,96,
+a conclusão é rejeitar $H_0$, com p-valor em torno de 0,025.
+Ao utilizar o valor crítico t para 4 graus de liberdade, que é 2,776,
+não há evidência suficiente para rejeitar $H_0$, e o p-valor passa a ser aproximadamente 0,09.
+Os mesmos dados conduzem a conclusões opostas,
+e apenas a segunda leva em conta que o desvio padrão foi estimado a partir de cinco observações.
+
+\subtitle{Quando cada teste se aplica}
+
+\hspace*{1.5em}
+O \textit{z-test} é adequado quando $\sigma$ é de fato conhecido,
+situação rara, que costuma ocorrer em processos industriais com longo histórico de calibração.
+Ele também é o procedimento padrão para proporções,
+caso em que a variância é determinada pela própria proporção testada
+e não precisa ser estimada separadamente.
+Para médias com $\sigma$ desconhecido, que é o cenário usual em ciência de dados,
+o \textit{t-test} é o procedimento apropriado.
+
+\subtitle{Uma ressalva importante}
+
+\hspace*{1.5em}
+A regra segundo a qual $n \geq 30$ autoriza o uso do \textit{z-test} é uma convenção histórica,
+associada à época em que as tabelas eram impressas e consultadas manualmente.
+Com $n$ grande, a diferença entre os dois testes se torna desprezível,
+e, como os softwares estatísticos calculam o \textit{t-test} sem custo adicional,
+a prática atual é utilizá-lo sempre que $\sigma$ for desconhecido.
+Vale lembrar ainda que, em amostras pequenas, o \textit{t-test} pressupõe uma população aproximadamente normal,
+condição que deve ser verificada antes de se confiar no resultado.
+
+\begin{infobox}
+\textbf{Curiosidade:}\\
+A distribuição t foi proposta por William Sealy Gosset em 1908,
+quando trabalhava na cervejaria Guinness, em Dublin,
+e a empresa o obrigou a publicar sob o pseudônimo \textit{Student}.
+Ele precisava tirar conclusões a partir de lotes pequenos de cevada e de cerveja,
+um contexto em que as aproximações normais não funcionavam bem.\\
+\textbf{\href{https://www.instagram.com/p/Dexi6WNFQJu/}{link do vídeo sobre a curiosidade aqui.}}
+\end{infobox}
+
+\vspace{0.1em}
+{\color{HypePurple2} Quer se aprofundar mais?}
+
+\href{https://www.open.edu/openlearn/science-maths-technology/data-analysis-hypothesis-testing/content-section-6.1}{Data analysis: hypothesis testing}
+\href{https://www.jstor.org/stable/2331554?origin=crossref}{Student (1908), The Probable Error of a Mean, Biometrika, vol. 6.}
+
+}
